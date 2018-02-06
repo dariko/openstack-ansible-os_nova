@@ -171,6 +171,13 @@ nova_virt_types:
     nova_firewall_driver: nova.virt.firewall.NoopFirewallDriver
     nova_scheduler_use_baremetal_filters: False
     nova_scheduler_tracks_instance_changes: True
+  vmware:
+    nova_compute_driver: vmwareapi.VMwareVCDriver
+    nova_scheduler_host_manager: host_manager
+    nova_reserved_host_memory_mb: 0
+    nova_scheduler_tracks_instance_changes: True
+    nova_scheduler_use_baremetal_filters: False
+    nova_firewall_driver: nova.virt.firewall.NoopFirewallDriver
 
 
 # If this is not set, then the playbook will try to guess it.
@@ -186,6 +193,7 @@ nova_supported_virt_types:
   - lxd
   - ironic
   - powervm
+  - vmware
 
 ## Nova Auth
 nova_service_region: RegionOne
